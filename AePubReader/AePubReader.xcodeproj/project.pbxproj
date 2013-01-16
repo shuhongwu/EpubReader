@@ -43,6 +43,7 @@
 		FAF45857134B18F400D4C0F9 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45847134B18F400D4C0F9 /* CXMLNode_XPathExtensions.m */; };
 		FAF45858134B18F400D4C0F9 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF4584A134B18F400D4C0F9 /* CTidy.m */; };
 		FAF45879134B1B6C00D4C0F9 /* EPub.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45878134B1B6C00D4C0F9 /* EPub.m */; };
+		FAF6259116A64DF50067F10A /* ReaderRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6259016A64DF50067F10A /* ReaderRecords.m */; };
 		FAFA8E86134A0603000291E2 /* vhugo.epub in Resources */ = {isa = PBXBuildFile; fileRef = FAFA8E85134A0603000291E2 /* vhugo.epub */; };
 		FAFA8EA7134A06D6000291E2 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = FAFA8E9E134A06D6000291E2 /* ioapi.c */; };
 		FAFA8EA8134A06D6000291E2 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = FAFA8EA0134A06D6000291E2 /* mztools.c */; };
@@ -116,6 +117,8 @@
 		FAF4584B134B18F400D4C0F9 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		FAF45877134B1B6C00D4C0F9 /* EPub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPub.h; sourceTree = "<group>"; };
 		FAF45878134B1B6C00D4C0F9 /* EPub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPub.m; sourceTree = "<group>"; wrapsLines = 0; };
+		FAF6258F16A64DF50067F10A /* ReaderRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderRecords.h; sourceTree = "<group>"; };
+		FAF6259016A64DF50067F10A /* ReaderRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderRecords.m; sourceTree = "<group>"; };
 		FAFA8E85134A0603000291E2 /* vhugo.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = vhugo.epub; sourceTree = "<group>"; };
 		FAFA8E9B134A06D6000291E2 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		FAFA8E9D134A06D6000291E2 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FAF6258A16A64D940067F10A /* bookdata */,
 				FAF4582D134B18D600D4C0F9 /* TouchXML */,
 				FAF4585B134B195500D4C0F9 /* ZipArchive */,
 				1D3623240D0F684500981E51 /* AePubReaderAppDelegate.h */,
@@ -301,6 +305,15 @@
 			name = ZipArchive;
 			sourceTree = "<group>";
 		};
+		FAF6258A16A64D940067F10A /* bookdata */ = {
+			isa = PBXGroup;
+			children = (
+				FAF6258F16A64DF50067F10A /* ReaderRecords.h */,
+				FAF6259016A64DF50067F10A /* ReaderRecords.m */,
+			);
+			path = bookdata;
+			sourceTree = "<group>";
+		};
 		FAFA8E9C134A06D6000291E2 /* minizip */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +428,7 @@
 				FA11956013BA924400025A2B /* GTMNSString+HTML.m in Sources */,
 				FA11956113BA924400025A2B /* NSString+HTML.m in Sources */,
 				FA11956413BA92CD00025A2B /* EPubViewController.m in Sources */,
+				FAF6259116A64DF50067F10A /* ReaderRecords.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
