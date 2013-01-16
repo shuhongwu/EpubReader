@@ -78,7 +78,7 @@
 	return pageCount;
 }
 
-- (void) loadSpine:(int)spineIndex loadSpine:(int)pageIndex {
+- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex {
     /*
      [self getGlobalPageCount];   此页在总页数的数字标示
      currentSpineIndex;           所在章节
@@ -87,22 +87,24 @@
      
                      所在章节                       所在章节页数 
      [self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex];
-     加书签 即是保存阅读记录，但是阅读记录需要程序自动记录，书签由用户控制，触发时机不一样。
-     进程跳转loadSpine loadSpine这个方法完成
-     阅读记录是一次性数据，考虑用nsuserdefaults完成。
-     书签采用nsdata. 这个两个的数据结构应该是一样的。
+
      */
     
     NSLog(@"所在章节:%d,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
     
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
     
-    //[self writeReaderRecords];
+    //测试写入阅读记录功能,可注释掉
+    [self writeReaderRecords];
 }
 
 
-- (void)writeReaderRecords{
 
+- (void)writeReaderRecords{
+    /*
+     写入阅读记录，一次性数据，每次都是变化的，而且只需存一个
+     不同于书签信息
+    */
     ReaderRecords *temp = [[ReaderRecords alloc] init];
     temp.currentSpineIndex = currentSpineIndex;
     temp.currentPageInSpineIndex = currentPageInSpineIndex;
@@ -111,16 +113,14 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fullFileName = [NSString stringWithFormat:@"%@/bookrecordsdata", documentsDirectory];
-
-    //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:fullFileName];
-    //if (fileExists) {
-    
+    NSString *fullFileName = [NSString stringWithFormat:@"%@/readerrecord", documentsDirectory];
     [NSKeyedArchiver archiveRootObject:temp toFile:fullFileName];
     [temp release];
-
+    
     
 }
+
+
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
 	
