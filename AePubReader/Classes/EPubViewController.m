@@ -12,6 +12,7 @@
 #import "SearchResult.h"
 #import "UIWebView+SearchWebView.h"
 #import "Chapter.h"
+#import "ReaderRecords.h"
 
 @interface EPubViewController()
 
@@ -95,6 +96,30 @@
     NSLog(@"所在章节:%d,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
     
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
+    
+    //[self writeReaderRecords];
+}
+
+
+- (void)writeReaderRecords{
+
+    ReaderRecords *temp = [[ReaderRecords alloc] init];
+    temp.currentSpineIndex = currentSpineIndex;
+    temp.currentPageInSpineIndex = currentPageInSpineIndex;
+    temp.totalPagesCount = totalPagesCount;
+    temp.getGlobalPageCount = [self getGlobalPageCount];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullFileName = [NSString stringWithFormat:@"%@/bookrecordsdata", documentsDirectory];
+
+    //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:fullFileName];
+    //if (fileExists) {
+    
+    [NSKeyedArchiver archiveRootObject:temp toFile:fullFileName];
+    [temp release];
+
+    
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
