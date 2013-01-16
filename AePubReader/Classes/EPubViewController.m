@@ -77,7 +77,7 @@
 	return pageCount;
 }
 
-- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex {
+- (void) loadSpine:(int)spineIndex loadSpine:(int)pageIndex {
     /*
      [self getGlobalPageCount];   此页在总页数的数字标示
      currentSpineIndex;           所在章节
@@ -86,7 +86,8 @@
      
                      所在章节                       所在章节页数 
      [self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex];
-
+     加书签 即是保存阅读记录，但是阅读记录需要程序自动记录，书签由用户控制，触发时机不一样。
+     进程跳转loadSpine loadSpine这个方法完成
      */
     
     NSLog(@"所在章节:%d,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
