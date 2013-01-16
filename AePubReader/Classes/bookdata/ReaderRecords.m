@@ -20,12 +20,19 @@
     [super dealloc];
 }
 
+#pragma mark NSCoding
+
+#define currentSpineIndexKey       @"currentSpineIndex"
+#define currentPageInSpineIndexKey       @"currentPageInSpineIndex"
+#define getGlobalPageCountKey       @"getGlobalPageCount"
+#define currentSpineIndexKey       @"currentSpineIndex"
+
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.currentSpineIndex = [decoder decodeInt32ForKey:@"currentSpineIndex"];
-        self.currentPageInSpineIndex = [decoder decodeInt32ForKey:@"currentPageInSpineIndex"];
-        self.getGlobalPageCount = [decoder decodeInt32ForKey:@"getGlobalPageCount"];
-        self.totalPagesCount = [decoder decodeInt32ForKey:@"totalPagesCount"];
+        self.currentSpineIndex = [decoder decodeInt32ForKey:currentSpineIndexKey];
+        self.currentPageInSpineIndex = [decoder decodeInt32ForKey:currentPageInSpineIndexKey];
+        self.getGlobalPageCount = [decoder decodeInt32ForKey:getGlobalPageCountKey];
+        self.totalPagesCount = [decoder decodeInt32ForKey:currentSpineIndexKey];
 
     }
     return self;
@@ -33,10 +40,10 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     
-    [encoder encodeInt32:currentSpineIndex forKey:@"currentSpineIndex"];
-    [encoder encodeInt32:currentPageInSpineIndex forKey:@"currentPageInSpineIndex"];
-    [encoder encodeInt32:getGlobalPageCount forKey:@"getGlobalPageCount"];
-    [encoder encodeInt32:totalPagesCount forKey:@"totalPagesCount"];
+    [encoder encodeInt32:currentSpineIndex forKey:currentSpineIndexKey];
+    [encoder encodeInt32:currentPageInSpineIndex forKey:currentPageInSpineIndexKey];
+    [encoder encodeInt32:getGlobalPageCount forKey:getGlobalPageCountKey];
+    [encoder encodeInt32:totalPagesCount forKey:currentSpineIndexKey];
 }
 
 @end
