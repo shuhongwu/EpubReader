@@ -30,6 +30,7 @@
 		FA881E501372CA9200FBD25F /* yellowslide.png in Resources */ = {isa = PBXBuildFile; fileRef = FA881E4D1372CA9200FBD25F /* yellowslide.png */; };
 		FA881E591372E96000FBD25F /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA881E571372E96000FBD25F /* SearchResultsViewController.m */; };
 		FA881E5A1372E96000FBD25F /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA881E581372E96000FBD25F /* SearchResultsViewController.xib */; };
+		FA9D8D9C16A7E633009285AF /* BookMarkRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9D8D9B16A7E633009285AF /* BookMarkRecords.m */; };
 		FAA85387134F422F0035F235 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA85386134F422F0035F235 /* Chapter.m */; };
 		FAF4584C134B18F400D4C0F9 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45831134B18F400D4C0F9 /* CXMLDocument_CreationExtensions.m */; };
 		FAF4584D134B18F400D4C0F9 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45833134B18F400D4C0F9 /* CXMLNode_CreationExtensions.m */; };
@@ -90,6 +91,8 @@
 		FA881E561372E96000FBD25F /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; wrapsLines = 0; };
 		FA881E571372E96000FBD25F /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		FA881E581372E96000FBD25F /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchResultsViewController.xib; path = Classes/SearchResultsViewController.xib; sourceTree = "<group>"; };
+		FA9D8D9A16A7E633009285AF /* BookMarkRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkRecords.h; sourceTree = "<group>"; };
+		FA9D8D9B16A7E633009285AF /* BookMarkRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkRecords.m; sourceTree = "<group>"; };
 		FAA85385134F422F0035F235 /* Chapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
 		FAA85386134F422F0035F235 /* Chapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; wrapsLines = 0; };
 		FAF45830134B18F400D4C0F9 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				FA11955E13BA924400025A2B /* GTMNSString+HTML.m */,
 				FA11955F13BA924400025A2B /* NSString+HTML.m */,
 				FA78540616A6962F00A0BF37 /* EpubReaderModel.xcdatamodeld */,
+				FA9D8D9A16A7E633009285AF /* BookMarkRecords.h */,
+				FA9D8D9B16A7E633009285AF /* BookMarkRecords.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				FA11956413BA92CD00025A2B /* EPubViewController.m in Sources */,
 				FAF6259816A658640067F10A /* ReaderRecords.m in Sources */,
 				FA78540816A6962F00A0BF37 /* EpubReaderModel.xcdatamodeld in Sources */,
+				FA9D8D9C16A7E633009285AF /* BookMarkRecords.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

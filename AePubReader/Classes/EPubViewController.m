@@ -13,6 +13,7 @@
 #import "UIWebView+SearchWebView.h"
 #import "Chapter.h"
 #import "ReaderRecords.h"
+#import "BookMarkRecords.h"
 
 @interface EPubViewController()
 
@@ -108,16 +109,14 @@
 - (void)writeReaderRecords{
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *failedBankInfo = [NSEntityDescription
+    BookMarkRecords *bookRecords = [NSEntityDescription
                                        insertNewObjectForEntityForName:@"BookMarkRecords"
                                        inManagedObjectContext:context];
-    [failedBankInfo setValue:[NSNumber numberWithInt:currentSpineIndex] forKey:@"currentSpineIndex"];
-    [failedBankInfo setValue:[NSNumber numberWithInt:currentPageInSpineIndex] forKey:@"currentPageInSpineIndex"];
-    [failedBankInfo setValue:[NSNumber numberWithInt:totalPagesCount] forKey:@"totalPagesCount"];
-    [failedBankInfo setValue:[NSNumber numberWithInt:[self getGlobalPageCount]] forKey:@"getGlobalPageCount"];
-    [failedBankInfo setValue:[NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
-    [failedBankInfo setValue:@"测试书籍" forKey:@"bookname"];
-
+    bookRecords.currentSpineIndex = currentSpineIndex;
+    bookRecords.currentPageInSpineIndex = currentPageInSpineIndex;
+    bookRecords.totalPagesCount = totalPagesCount;
+    bookRecords.getGlobalPageCount = [self getGlobalPageCount];
+    bookRecords.bookname = @"测试书籍";
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -129,14 +128,12 @@
                                    entityForName:@"BookMarkRecords" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (NSManagedObject *info in fetchedObjects) {
-        NSLog(@"currentSpineIndex: %@", [info valueForKey:@"currentSpineIndex"]);
-        NSLog(@"currentPageInSpineIndex: %@", [info valueForKey:@"currentPageInSpineIndex"]);
-        NSLog(@"totalPagesCount: %@", [info valueForKey:@"totalPagesCount"]);
-        NSLog(@"getGlobalPageCount: %@", [info valueForKey:@"getGlobalPageCount"]);
-        NSLog(@"bookname: %@", [info valueForKey:@"bookname"]);
-
-
+    for (BookMarkRecords *info in fetchedObjects) {
+        NSLog(@"currentSpineIndex: %d", info.currentSpineIndex);
+        NSLog(@"currentPageInSpineIndex: %d", info.currentPageInSpineIndex);
+        NSLog(@"totalPagesCount: %d", info.totalPagesCount);
+        NSLog(@"getGlobalPageCount: %d", info.getGlobalPageCount);
+        NSLog(@"bookname: %@", info.bookname);
     }
     
     
