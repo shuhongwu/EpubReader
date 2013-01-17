@@ -22,7 +22,6 @@
 		FA307A3C1371E2B000959622 /* ChapterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA307A3A1371E2B000959622 /* ChapterListViewController.m */; };
 		FA307A3D1371E2B000959622 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA307A3B1371E2B000959622 /* ChapterListViewController.xib */; };
 		FA3B29B7137440380055A954 /* SearchWebView.js in Resources */ = {isa = PBXBuildFile; fileRef = FA3B29B5137434330055A954 /* SearchWebView.js */; };
-		FA3C93C416A679A70067E1F5 /* UserBookRecords.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3C93C316A679A70067E1F5 /* UserBookRecords.plist */; };
 		FA4FBE561372F6A400C4E728 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FBE551372F6A400C4E728 /* SearchResult.m */; };
 		FA78540816A6962F00A0BF37 /* EpubReaderModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA78540616A6962F00A0BF37 /* EpubReaderModel.xcdatamodeld */; };
 		FA78540E16A69A2900A0BF37 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA78540D16A69A2900A0BF37 /* CoreData.framework */; };
@@ -81,7 +80,6 @@
 		FA307A3A1371E2B000959622 /* ChapterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterListViewController.m; sourceTree = "<group>"; };
 		FA307A3B1371E2B000959622 /* ChapterListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChapterListViewController.xib; path = Classes/ChapterListViewController.xib; sourceTree = "<group>"; };
 		FA3B29B5137434330055A954 /* SearchWebView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SearchWebView.js; sourceTree = "<group>"; };
-		FA3C93C316A679A70067E1F5 /* UserBookRecords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserBookRecords.plist; sourceTree = "<group>"; };
 		FA4FBE541372F6A400C4E728 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		FA4FBE551372F6A400C4E728 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; wrapsLines = 0; };
 		FA78540716A6962F00A0BF37 /* EpubReaderModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EpubReaderModel.xcdatamodel; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				FA307A3B1371E2B000959622 /* ChapterListViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* AePubReader-Info.plist */,
-				FA3C93C316A679A70067E1F5 /* UserBookRecords.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -391,7 +388,6 @@
 				FA881E501372CA9200FBD25F /* yellowslide.png in Resources */,
 				FA881E5A1372E96000FBD25F /* SearchResultsViewController.xib in Resources */,
 				FA11956613BA93F100025A2B /* EPubView.xib in Resources */,
-				FA3C93C416A679A70067E1F5 /* UserBookRecords.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
