@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "ZipArchive.h"
 #import "EPub.h"
 #import "Chapter.h"
@@ -74,5 +75,12 @@
 @property (nonatomic, retain) IBOutlet UILabel *currentPageLabel;
 
 @property BOOL searching;
+
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;//执行器
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;//一般都是实体 entities,表结构
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;//连接器
+
+
 
 @end
