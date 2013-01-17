@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C3006" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BookMarkRecords" syncable="YES">
+    <entity name="BookMarkRecords" representedClassName="BookMarkRecords" syncable="YES">
         <attribute name="bookname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentPageInSpineIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="currentSpineIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
