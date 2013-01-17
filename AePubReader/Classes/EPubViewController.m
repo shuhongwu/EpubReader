@@ -116,6 +116,8 @@
     [failedBankInfo setValue:[NSNumber numberWithInt:totalPagesCount] forKey:@"totalPagesCount"];
     [failedBankInfo setValue:[NSNumber numberWithInt:[self getGlobalPageCount]] forKey:@"getGlobalPageCount"];
     [failedBankInfo setValue:[NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
+    [failedBankInfo setValue:@"测试书籍" forKey:@"bookname"];
+
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -132,6 +134,8 @@
         NSLog(@"currentPageInSpineIndex: %@", [info valueForKey:@"currentPageInSpineIndex"]);
         NSLog(@"totalPagesCount: %@", [info valueForKey:@"totalPagesCount"]);
         NSLog(@"getGlobalPageCount: %@", [info valueForKey:@"getGlobalPageCount"]);
+        NSLog(@"bookname: %@", [info valueForKey:@"bookname"]);
+
 
     }
     
