@@ -101,12 +101,13 @@
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
     
     //测试写入阅读记录功能,可注释掉
-   // [self writeReaderRecords];
+    [self writeReaderRecords];
 }
 
 
 //书签可以有很多歌，但是阅读记录每次只有一个
 //进程跳转可调用- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex 这个方法
+#pragma =========书签，阅读记录，跳转方法========
 - (void)writeReaderRecords{
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -117,27 +118,56 @@
     bookRecords.currentPageInSpineIndex = currentPageInSpineIndex;
     bookRecords.totalPagesCount = totalPagesCount;
     bookRecords.getGlobalPageCount = [self getGlobalPageCount];
+    bookRecords.time = [[NSDate date] timeIntervalSince1970];
     bookRecords.bookname = @"测试书籍";
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
 
+    [self fetchBookRecords:0];
+}
+
+//阅读记录应该是最新的一条数据
+//RecordsType  0是全部书签记录，1是最新阅读记录，即是书籍上一次打开位置
+//             返回全部书签数组  返回最新的一个BookMarkRecords对象
+-(id)fetchBookRecords:(int)RecordsType{
     
+    NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"BookMarkRecords" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    NSError *error;        
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];//全部书签
+    
+    if(RecordsType==1)
+        return [fetchedObjects lastObject];
+
+    return fetchedObjects;
+    
+    /*
+    BookMarkRecords *tempRecordObject = [fetchedObjects lastObject];//最新阅读记录
+    NSLog(@"currentSpineIndex: %d", tempRecordObject.currentSpineIndex);
+    NSLog(@"currentPageInSpineIndex: %d", tempRecordObject.currentPageInSpineIndex);
+    NSLog(@"totalPagesCount: %d", tempRecordObject.totalPagesCount);
+    NSLog(@"getGlobalPageCount: %d", tempRecordObject.getGlobalPageCount);
+    NSLog(@"time: %f", tempRecordObject.time);
+    NSLog(@"bookname: %@", tempRecordObject.bookname);
     for (BookMarkRecords *info in fetchedObjects) {
         NSLog(@"currentSpineIndex: %d", info.currentSpineIndex);
         NSLog(@"currentPageInSpineIndex: %d", info.currentPageInSpineIndex);
         NSLog(@"totalPagesCount: %d", info.totalPagesCount);
         NSLog(@"getGlobalPageCount: %d", info.getGlobalPageCount);
+        NSLog(@"time: %f", info.time);
         NSLog(@"bookname: %@", info.bookname);
     }
+    */
+    //返回一个BookMarkRecords数组,做书签返回用
     
+    return fetchedObjects;
 }
+#pragma =====================================
 
 
 

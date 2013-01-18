@@ -16,7 +16,7 @@
 @property (nonatomic) int32_t currentPageInSpineIndex;
 @property (nonatomic) int32_t currentSpineIndex;
 @property (nonatomic) int32_t getGlobalPageCount;
-@property (nonatomic) int32_t time;
+@property (nonatomic) double time;
 @property (nonatomic) int32_t totalPagesCount;
 
 @end
