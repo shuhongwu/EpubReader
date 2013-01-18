@@ -101,11 +101,12 @@
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
     
     //测试写入阅读记录功能,可注释掉
-    [self writeReaderRecords];
+   // [self writeReaderRecords];
 }
 
 
-
+//书签可以有很多歌，但是阅读记录每次只有一个
+//进程跳转可调用- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex 这个方法
 - (void)writeReaderRecords{
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -135,58 +136,6 @@
         NSLog(@"getGlobalPageCount: %d", info.getGlobalPageCount);
         NSLog(@"bookname: %@", info.bookname);
     }
-    
-    
-    
-    /*
-     写入阅读记录，一次性数据，每次都是变化的，而且只需存一个
-     不同于书签信息
-    
-    NSError *error;
-	BOOL isMoved;
-	if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(),@"/Library/Caches/UserBookRecords.plist"]]){
-		isMoved=[[NSFileManager defaultManager] copyItemAtPath:[NSString stringWithFormat:@"%@%@", [[NSBundle mainBundle] resourcePath],@"/UserBookRecords.plist"]
-                                                toPath:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(),@"/Library/Caches/UserBookRecords.plist"]
-                                                error:&error];
-		
-	}    
-    if(!isMoved)
-        //NSLog(@"Failed to create DB.....");
-        NSLog(@"%@",[error description]);
-    else
-        NSLog(@"Created editable copy of DB");
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fullFileName = [NSString stringWithFormat:@"%@/UserBookRecords.plist", documentsDirectory];
-    
-    NSDictionary *oldContent = [NSDictionary dictionaryWithContentsOfFile:fullFileName];
-    
-    //NSDictionary *parentData = [oldContent objectForKey:@"BookMark"];
-
-    
-    NSMutableDictionary *newContent = [[oldContent mutableCopy] autorelease];
-
-    [newContent setObject:[NSNumber numberWithInt:currentSpineIndex] forKey:@"currentSpineIndex"];
-    [newContent setObject:[NSNumber numberWithInt:currentPageInSpineIndex] forKey:@"currentPageInSpineIndex"];
-    [newContent setObject:[NSNumber numberWithInt:totalPagesCount] forKey:@"totalPagesCount"];
-    [newContent setObject:[NSNumber numberWithInt:[self getGlobalPageCount]] forKey:@"getGlobalPageCount"];
-    //[newContent setValue:newContent forKey:@"UserBookRecords"];
-    [newContent writeToFile:fullFileName atomically:YES];
-      */  
-    /*
-    ReaderRecords *temp = [[ReaderRecords alloc] init];
-    temp.currentSpineIndex = currentSpineIndex;
-    temp.currentPageInSpineIndex = currentPageInSpineIndex;
-    temp.totalPagesCount = totalPagesCount;
-    temp.getGlobalPageCount = [self getGlobalPageCount];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fullFileName = [NSString stringWithFormat:@"%@/readerrecord", documentsDirectory];
-    [NSKeyedArchiver archiveRootObject:temp toFile:fullFileName];
-    [temp release];
-    */
     
 }
 
