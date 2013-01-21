@@ -72,6 +72,9 @@ int tempInt;
     [webView stringByEvaluatingJavaScriptFromString:setTextSizeRule];
     
 	int totalWidth = [[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollWidth"] intValue];
+    NSLog(@"document.documentElement.scrollWidth=====%d",totalWidth);
+    NSLog(@"webView.bounds.size.width================%f",webView.bounds.size.width);
+
 	pageCount = (int)((float)totalWidth/webView.bounds.size.width);
 	
     NSLog(@"Chapter %d: %@ -> %d pages", chapterIndex, title, pageCount);
