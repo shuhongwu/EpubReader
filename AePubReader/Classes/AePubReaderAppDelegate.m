@@ -26,7 +26,7 @@
     
     self.window.rootViewController = self.detailViewController;
     [self.window makeKeyAndVisible];
-    [detailViewController loadEpub:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]]];
+    [detailViewController loadEpub:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"epub"]]];
     
     return YES;
 }
