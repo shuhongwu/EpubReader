@@ -32,9 +32,10 @@ int tempInt;
 - (void) loadChapterWithWindowSize:(CGRect)theWindowSize fontPercentSize:(int) theFontPercentSize{
     fontPercentSize = theFontPercentSize;
     windowSize = theWindowSize;
-//  NSLog(@"webviewSize: %f * %f, fontPercentSize: %d", theWindowSize.size.width, theWindowSize.size.height,theFontPercentSize);
+    NSLog(@"webviewSize: %f * %f, fontPercentSize: %d", theWindowSize.size.width, theWindowSize.size.height,theFontPercentSize);
     UIWebView* webView = [[UIWebView alloc] initWithFrame:windowSize];
     [webView setDelegate:self];
+    NSLog(@"解析的章节Path===========================%@",spinePath);
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:spinePath]];
     [webView loadRequest:urlRequest];
 }
@@ -54,7 +55,7 @@ int tempInt;
         "mySheet.insertRule(selector + '{' + newRule + ';}', ruleIndex);"   // For Firefox, Chrome, etc.
 	"}";
 	
-//	NSLog(@"w:%f h:%f", webView.bounds.size.width, webView.bounds.size.height);
+	NSLog(@"webView.bounds.size.width:%f webView.bounds.size.height:%f", webView.bounds.size.width, webView.bounds.size.height);
 	
 	NSString *insertRule1 = [NSString stringWithFormat:@"addCSSRule('html', 'padding: 0px; height: %fpx; -webkit-column-gap: 0px; -webkit-column-width: %fpx;')", webView.frame.size.height, webView.frame.size.width];
 	NSString *insertRule2 = [NSString stringWithFormat:@"addCSSRule('p', 'text-align: justify;')"];
