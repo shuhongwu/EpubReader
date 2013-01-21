@@ -61,8 +61,9 @@
 }
 
 - (void) chapterDidFinishLoad:(Chapter *)chapter{
+//  totalPagesCount = totalPagesCount+chapter.pageCount
     totalPagesCount+=chapter.pageCount;
-
+//  spineArray章节集合数目 
 	if(chapter.chapterIndex + 1 < [loadedEpub.spineArray count]){
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] setDelegate:self];
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize];
@@ -71,7 +72,7 @@
 		[currentPageLabel setText:[NSString stringWithFormat:@"%d/%d",[self getGlobalPageCount], totalPagesCount]];
 		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
 		paginating = NO;
-		NSLog(@"Pagination Ended!");
+		NSLog(@"分页结束");
 	}
 }
 
@@ -101,7 +102,7 @@
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
     
     //测试写入阅读记录功能,可注释掉
-    [self writeReaderRecords];
+    //[self writeReaderRecords];
 }
 
 
@@ -373,7 +374,7 @@
     
 	if(epubLoaded){
         if(!paginating){
-            NSLog(@"Pagination Started!\n");
+            NSLog(@"分页开始!\n");
             paginating = YES;
             totalPagesCount=0;
             [self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex];

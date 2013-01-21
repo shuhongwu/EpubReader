@@ -8,6 +8,9 @@
 
 #import "Chapter.h"
 #import "NSString+HTML.h"
+@implementation Chapter(private)
+int tempInt;
+@end
 
 @implementation Chapter 
 
@@ -42,15 +45,12 @@
 }
 
 - (void) webViewDidFinishLoad:(UIWebView*)webView{
+    NSLog(@"已经执行--%d--次",tempInt++);
     NSString *varMySheet = @"var mySheet = document.styleSheets[0];";
 	
 	NSString *addCSSRule =  @"function addCSSRule(selector, newRule) {"
-	"if (mySheet.addRule) {"
-        "mySheet.addRule(selector, newRule);"								// For Internet Explorer
-	"} else {"
         "ruleIndex = mySheet.cssRules.length;"
         "mySheet.insertRule(selector + '{' + newRule + ';}', ruleIndex);"   // For Firefox, Chrome, etc.
-    "}"
 	"}";
 	
 //	NSLog(@"w:%f h:%f", webView.bounds.size.width, webView.bounds.size.height);
@@ -73,7 +73,7 @@
 	int totalWidth = [[webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollWidth"] intValue];
 	pageCount = (int)((float)totalWidth/webView.bounds.size.width);
 	
-//    NSLog(@"Chapter %d: %@ -> %d pages", chapterIndex, title, pageCount);
+    NSLog(@"Chapter %d: %@ -> %d pages", chapterIndex, title, pageCount);
     
     [webView dealloc];
     [delegate chapterDidFinishLoad:self];
