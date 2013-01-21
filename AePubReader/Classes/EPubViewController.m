@@ -62,7 +62,7 @@
 
 - (void) chapterDidFinishLoad:(Chapter *)chapter{
 //  totalPagesCount = totalPagesCount+chapter.pageCount
-//  totalPagesCount等于每次解析完章节页数后的累加
+//  totalPagesCount等于每次解析完章节页数后的叠加
     totalPagesCount+=chapter.pageCount;
 //  spineArray章节集合数目 
 	if(chapter.chapterIndex + 1 < [loadedEpub.spineArray count]){
