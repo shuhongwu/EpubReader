@@ -46,6 +46,7 @@ int tempInt;
 
 - (void) webViewDidFinishLoad:(UIWebView*)webView{
     NSLog(@"已经执行--%d--次",tempInt++);
+    float startTime= [[NSDate date] timeIntervalSince1970];
     NSString *varMySheet = @"var mySheet = document.styleSheets[0];";
 	
 	NSString *addCSSRule =  @"function addCSSRule(selector, newRule) {"
@@ -77,6 +78,7 @@ int tempInt;
     
     [webView dealloc];
     [delegate chapterDidFinishLoad:self];
+    NSLog(@"第%d章节耗时======%f",tempInt-1,[[NSDate date] timeIntervalSince1970]-startTime);
     
 }
 
