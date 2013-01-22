@@ -450,7 +450,7 @@
 			sv.bounces = NO;
 		}
 	}
-	currentTextSize = 100;	 
+	currentTextSize = 125;
 	
 	UISwipeGestureRecognizer* rightSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoNextPage)] autorelease];
 	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
