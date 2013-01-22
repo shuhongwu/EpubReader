@@ -47,6 +47,7 @@
 		FAF45857134B18F400D4C0F9 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45847134B18F400D4C0F9 /* CXMLNode_XPathExtensions.m */; };
 		FAF45858134B18F400D4C0F9 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF4584A134B18F400D4C0F9 /* CTidy.m */; };
 		FAF45879134B1B6C00D4C0F9 /* EPub.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF45878134B1B6C00D4C0F9 /* EPub.m */; };
+		FAF4D4E316AE54F7000C488F /* CalcuelatePagesTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF4D4E116AE54F7000C488F /* CalcuelatePagesTotal.m */; };
 		FAF6259816A658640067F10A /* ReaderRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6259716A658640067F10A /* ReaderRecords.m */; };
 		FAFA8E86134A0603000291E2 /* vhugo.epub in Resources */ = {isa = PBXBuildFile; fileRef = FAFA8E85134A0603000291E2 /* vhugo.epub */; };
 		FAFA8EA7134A06D6000291E2 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = FAFA8E9E134A06D6000291E2 /* ioapi.c */; };
@@ -126,6 +127,8 @@
 		FAF4584B134B18F400D4C0F9 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		FAF45877134B1B6C00D4C0F9 /* EPub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPub.h; sourceTree = "<group>"; };
 		FAF45878134B1B6C00D4C0F9 /* EPub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPub.m; sourceTree = "<group>"; wrapsLines = 0; };
+		FAF4D4E116AE54F7000C488F /* CalcuelatePagesTotal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcuelatePagesTotal.m; sourceTree = "<group>"; };
+		FAF4D4E216AE54F7000C488F /* CalcuelatePagesTotal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcuelatePagesTotal.h; sourceTree = "<group>"; };
 		FAF6259616A658640067F10A /* ReaderRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderRecords.h; sourceTree = "<group>"; };
 		FAF6259716A658640067F10A /* ReaderRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderRecords.m; sourceTree = "<group>"; };
 		FAFA8E85134A0603000291E2 /* vhugo.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = vhugo.epub; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				FAF45878134B1B6C00D4C0F9 /* EPub.m */,
 				FA11956213BA92CD00025A2B /* EPubViewController.h */,
 				FA11956313BA92CD00025A2B /* EPubViewController.m */,
+				FAF4D4E216AE54F7000C488F /* CalcuelatePagesTotal.h */,
+				FAF4D4E116AE54F7000C488F /* CalcuelatePagesTotal.m */,
 				FAA85385134F422F0035F235 /* Chapter.h */,
 				FAA85386134F422F0035F235 /* Chapter.m */,
 				FA881E561372E96000FBD25F /* SearchResultsViewController.h */,
@@ -439,6 +444,7 @@
 				FAF6259816A658640067F10A /* ReaderRecords.m in Sources */,
 				FA78540816A6962F00A0BF37 /* EpubReaderModel.xcdatamodeld in Sources */,
 				FA9D8D9C16A7E633009285AF /* BookMarkRecords.m in Sources */,
+				FAF4D4E316AE54F7000C488F /* CalcuelatePagesTotal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
