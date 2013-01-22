@@ -14,6 +14,7 @@
 #import "Chapter.h"
 #import "ReaderRecords.h"
 #import "BookMarkRecords.h"
+#import "CalcuelatePagesTotal.h"
 
 @interface EPubViewController()
 
@@ -61,6 +62,7 @@
 	[self updatePagination];
 }
 
+#pragma ============chapter delegate======================
 - (void) chapterDidFinishLoad:(Chapter *)chapter{
 //  totalPagesCount = totalPagesCount+chapter.pageCount
 //  totalPagesCount等于每次解析完章节页数后的叠加
@@ -76,7 +78,7 @@
         [currentPageLabel setText:[NSString stringWithFormat:@"%d/%d",[self getGlobalPageCount], totalPagesCount]];
 
 	}
-     
+    
     else
     {
 		[currentPageLabel setText:[NSString stringWithFormat:@"%d/%d",[self getGlobalPageCount], totalPagesCount]];
@@ -465,7 +467,10 @@
     
 	searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
 	searchResViewController.epubViewController = self;
+    
 }
+
+
 
 - (void)viewDidUnload {
 	self.toolbar = nil;
