@@ -64,18 +64,27 @@
 //  totalPagesCount = totalPagesCount+chapter.pageCount
 //  totalPagesCount等于每次解析完章节页数后的叠加
     totalPagesCount+=chapter.pageCount;
-//  spineArray章节集合数目 
-	if(chapter.chapterIndex + 1 < [loadedEpub.spineArray count]){
+//  spineArray章节集合数目
+    
+	if(chapter.chapterIndex + 1 < [loadedEpub.spineArray count])
+    {
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] setDelegate:self];
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize];
 		[currentPageLabel setText:[NSString stringWithFormat:@"?/%d", totalPagesCount]];
-	} else {
+	}
+     
+    else
+    {
 		[currentPageLabel setText:[NSString stringWithFormat:@"%d/%d",[self getGlobalPageCount], totalPagesCount]];
 		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
 		paginating = NO;
 		NSLog(@"分页结束");
 	}
+    
+    
 }
+
+
 
 - (int) getGlobalPageCount{
 	int pageCount = 0;
