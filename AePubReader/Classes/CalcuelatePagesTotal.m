@@ -106,6 +106,12 @@ int totalPage;
             [delegate totalPagesDone:totalPage];
         
         }
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:totalPage] forKey:@"totalPage"];
+
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"AppStoreDoneNotification"
+         object:self userInfo:userInfo];
+
 
     }
     

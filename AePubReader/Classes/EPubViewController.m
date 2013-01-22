@@ -58,9 +58,29 @@
     self.loadedEpub = [[EPub alloc] initWithEPubPath:[epubURL path]];
     epubLoaded = YES;
     NSLog(@"loadEpub\n");
-    //[self performSelectorInBackground:@selector(updatePagination) withObject:nil];
-	[self updatePagination];
+    
+	//[self updatePagination];
+    CalcuelatePagesTotal *tempCal = [[CalcuelatePagesTotal alloc] init];
+    [tempCal loadChapterWithWindowSize:webView.bounds fontPercentSize:125 EpubSpineArray:loadedEpub.spineArray];
 }
+
+
+#pragma ==========NSNotification通知总页数===============
+- (void) receiveAppStoreDoneNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"AppStoreDoneNotification"])
+        NSLog (@"Successfully received the AppStoreDoneNotification !");
+    
+    
+    NSDictionary *userInfo = notification.userInfo;
+    id  pagesTotal = [userInfo objectForKey:@"totalPage"];
+    NSLog(@"通知发送过来的总数为.....%d",[pagesTotal intValue]);
+    totalPagesCount = [pagesTotal intValue];
+    
+}
+
+
+
 
 #pragma ============chapter delegate======================
 - (void) chapterDidFinishLoad:(Chapter *)chapter{
@@ -468,6 +488,12 @@
 	searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
 	searchResViewController.epubViewController = self;
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveAppStoreDoneNotification:)
+                                                 name:@"AppStoreDoneNotification"
+                                               object:nil];
+
 }
 
 
@@ -595,6 +621,8 @@
 	[searchResultsPopover release];
 	[searchResViewController release];
 	[currentSearchResult release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     [super dealloc];
 }
 
