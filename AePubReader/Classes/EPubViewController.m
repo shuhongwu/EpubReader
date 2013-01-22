@@ -107,7 +107,7 @@
 
      */
     
-    NSLog(@"所在章节:%d,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
+    NSLog(@"章节之间跳转数据,第:%d章,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
     
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:nil];
     
@@ -202,6 +202,11 @@
 }
 
 - (void) gotoPageInCurrentSpine:(int)pageIndex{
+    
+    NSLog(@"章节内翻页数据,第:%d章,\n所在章节页数:%d,\nGlobalPageCount:%d,\ntotalPagesCount:%d",currentSpineIndex,currentPageInSpineIndex,[self getGlobalPageCount],totalPagesCount);
+    
+    NSLog(@"pageIndex=====%d......pagesInCurrentSpineCount=======%d",pageIndex,pagesInCurrentSpineCount);
+    
 	if(pageIndex>=pagesInCurrentSpineCount){
 		pageIndex = pagesInCurrentSpineCount - 1;
 		currentPageInSpineIndex = pagesInCurrentSpineCount - 1;	
