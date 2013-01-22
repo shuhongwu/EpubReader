@@ -57,12 +57,14 @@
     self.loadedEpub = [[EPub alloc] initWithEPubPath:[epubURL path]];
     epubLoaded = YES;
     NSLog(@"loadEpub\n");
+    //[self performSelectorInBackground:@selector(updatePagination) withObject:nil];
 	[self updatePagination];
 }
 
 - (void) chapterDidFinishLoad:(Chapter *)chapter{
 //  totalPagesCount = totalPagesCount+chapter.pageCount
 //  totalPagesCount等于每次解析完章节页数后的叠加
+//  getGlobalPageCount无论在开始放大还是缩小时  都可以立马确定
     totalPagesCount+=chapter.pageCount;
 //  spineArray章节集合数目
     
@@ -70,7 +72,9 @@
     {
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] setDelegate:self];
 		[[loadedEpub.spineArray objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize];
-		[currentPageLabel setText:[NSString stringWithFormat:@"?/%d", totalPagesCount]];
+		//[currentPageLabel setText:[NSString stringWithFormat:@"?/%d", totalPagesCount]];
+        [currentPageLabel setText:[NSString stringWithFormat:@"%d/%d",[self getGlobalPageCount], totalPagesCount]];
+
 	}
      
     else
